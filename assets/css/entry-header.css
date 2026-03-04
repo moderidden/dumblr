@@ -1,0 +1,101 @@
+/* entry-header.css — header chrome for individual entry pages */
+
+:root {
+  --bg:          #f9f7f4;
+  --text:        #1a1a1a;
+  --text-muted:  #888;
+  --accent:      #3a5ccc;
+  --transition:  0.2s ease;
+  --font:        'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:   ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace;
+}
+
+[data-theme="dark"],
+[data-theme="auto"] {
+  --bg:          #141414;
+  --text:        #e8e6e2;
+  --text-muted:  #666;
+  --accent:      #7fa8ff;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  [data-theme="auto"] {
+    --bg:   #f9f7f4;
+    --text: #1a1a1a;
+  }
+}
+
+.entry-site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  height: 52px;
+  background: var(--bg);
+  border-bottom: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
+  gap: 1rem;
+  font-family: var(--font);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.entry-site-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.entry-site-title .title-insert {
+  display: inline-block;
+  overflow: hidden;
+  max-width: 0;
+  white-space: nowrap;
+  color: #e6b800;
+  transition: max-width 0.1s ease-in;
+  vertical-align: bottom;
+}
+.entry-site-title:hover .title-insert {
+  max-width: 8rem;
+  transition: max-width 0.38s cubic-bezier(0.34, 1.1, 0.64, 1);
+}
+
+.entry-header-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.entry-header-actions button {
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  transition: color var(--transition);
+}
+.entry-header-actions button:hover {
+  color: var(--text-muted);
+}
+#entry-theme-toggle {
+  font-size: 1.05rem;
+  padding: 0.35rem 0.6rem;
+}
+
+@media (max-width: 680px) {
+  .entry-site-title:hover .title-insert {
+    max-width: 0;
+  }
+}

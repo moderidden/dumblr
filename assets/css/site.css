@@ -644,6 +644,13 @@ button:hover {
   padding: 3rem 0;
 }
 
+.coming-soon {
+  font-size: 0.88rem;
+  font-family: var(--font-mono);
+  color: #e6b800;
+  padding: 3rem 0;
+}
+
 /* ── Responsive ── */
 @media (max-width: 680px) {
   /* Disable title expand animation on mobile */
