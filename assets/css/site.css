@@ -619,10 +619,12 @@ button:hover {
 }
 
 .month-nav-year {
-  font-size: 0.62rem;
+  font-size: 0.52rem;
   font-weight: 700;
   font-family: var(--font-mono);
   color: var(--text);
+  line-height: 1;
+  vertical-align: baseline;
 }
 
 .month-nav a {
