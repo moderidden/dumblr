@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dumblr</title>
+  <!-- Google Fonts: Inter (weights 400/500/600/700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/site.css" />
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header">
+    <a href="/" class="site-title">Dumblr</a>
+
+    <div class="header-actions">
+      <button id="random-btn" title="Open a random entry">&#9862; random</button>
+      <button id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle theme">&#9788;</button>
+    </div>
+  </header>
+
+  <div class="site-layout">
+    <aside class="site-sidebar">
+      <nav>
+        <span class="sidebar-section-label">log</span>
+        <a href="movies.html" class="sidebar-link">movies</a>
+        <a href="books.html" class="sidebar-link">books</a>
+        <a href="theater.html" class="sidebar-link">shows</a>
+        <a href="meals.html" class="sidebar-link">meals</a>
+
+        <span class="sidebar-section-label">life</span>
+        <a href="notes.html" class="sidebar-link">notes</a>
+        <a href="memories.html" class="sidebar-link">memories</a>
+        <a href="travel.html" class="sidebar-link">travel</a>
+        <a href="shelf.html" class="sidebar-link">shelf</a>
+        <a href="outfits.html" class="sidebar-link">outfits</a>
+
+        <span class="sidebar-section-label">for fun</span>
+        <a href="quotes.html" class="sidebar-link">quotes</a>
+        <a href="interactive.html" class="sidebar-link">apps</a>
+        <a href="top5.html" class="sidebar-link">top 5</a>
+        <a href="press-passes.html" class="sidebar-link">press passes</a>
+      </nav>
+    </aside>
+
+
+  <!-- ===================== MAIN ===================== -->
+  <main class="site-main">
+
+    <!-- Pinned entries (only shown if there are any) -->
+    <section id="pinned-section" class="hidden">
+      <h2 class="section-label">pinned</h2>
+      <div id="pinned-grid" class="entry-grid"></div>
+    </section>
+
+    <!-- Current month -->
+    <section id="current-month-section">
+      <h2 class="section-label" id="current-month-label"></h2>
+      <div id="current-month-grid" class="entry-grid"></div>
+    </section>
+
+    <!-- Last month -->
+    <section id="last-month-section" class="hidden">
+      <h2 class="section-label" id="last-month-label"></h2>
+      <div id="last-month-grid" class="entry-grid"></div>
+    </section>
+
+    <!-- Empty state shown while loading or if no entries exist -->
+    <p id="empty-state" class="empty-state hidden">No entries yet.</p>
+
+  </main>
+  </div><!-- /.site-layout -->
+
+  <!-- ===================== FOOTER / OLDER MONTHS NAV ===================== -->
+  <footer class="site-footer">
+    <nav id="month-nav" class="month-nav" aria-label="Older months"></nav>
+  </footer>
+
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

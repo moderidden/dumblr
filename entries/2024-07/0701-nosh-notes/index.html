@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosh Notes — Dumblr</title>
+
+  <script type="application/json" id="entry-meta">
+  {
+    "title": "Nosh Notes",
+    "date": "2024-07-01",
+    "type": "interactive",
+    "description": "",
+    "tags": [],
+    "pinned": false,
+    "url": "https://nosh-notes.netlify.app"
+  }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #f9f7f4;
+      color: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { background: #141414; color: #e8e6e2; }
+      a { color: #7fa8ff; }
+    }
+    .top-bar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 1.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      flex-shrink: 0;
+    }
+    @media (prefers-color-scheme: dark) {
+      .top-bar { border-bottom-color: rgba(255,255,255,0.07); }
+    }
+    .back-link {
+      font-size: 0.78rem;
+      font-family: monospace;
+      color: #888;
+      text-decoration: none;
+    }
+    .back-link:hover { color: #555; }
+    .entry-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .open-link {
+      margin-left: auto;
+      font-size: 0.78rem;
+      font-family: monospace;
+      color: #888;
+      text-decoration: none;
+    }
+    .open-link:hover { color: #555; }
+    .app-frame {
+      flex: 1;
+      width: 100%;
+      border: none;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <a href="/interactive.html" class="back-link">← back</a>
+    <span class="entry-title">Nosh Notes</span>
+    <a href="https://nosh-notes.netlify.app" target="_blank" class="open-link">open ↗</a>
+  </div>
+
+  <iframe
+    class="app-frame"
+    src="https://nosh-notes.netlify.app"
+    title="Nosh Notes"
+    allow="fullscreen">
+  </iframe>
+
+</body>
+</html>

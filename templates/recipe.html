@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RECIPE NAME — Dumblr</title>
+
+  <!--
+    ╔══════════════════════════════════════════════════════════════╗
+    ║  RECIPE ENTRY METADATA                                       ║
+    ╠══════════════════════════════════════════════════════════════╣
+    ║  title        Recipe name                                    ║
+    ║  date         When you made it — YYYY-MM-DD                  ║
+    ║  type         Must stay exactly "recipe"                     ║
+    ║  description  SHORT NOTE shown on the card (1–3 sentences)   ║
+    ║  pinned       true or false                                  ║
+    ║  rating       0 to 5, halves ok (would you make it again?)   ║
+    ║  source       Where the recipe is from (book, website, etc.) ║
+    ║  cuisine      e.g. "Japanese", "Italian", "Korean"           ║
+    ╚══════════════════════════════════════════════════════════════╝
+  -->
+  <script type="application/json" id="entry-meta">
+  {
+    "title": "RECIPE NAME",
+    "date": "YYYY-MM-DD",
+    "type": "recipe",
+    "description": "SHORT NOTE — shown on the card. How did it go?",
+    "tags": [],
+    "pinned": false,
+    "rating": 4,
+    "source": "Where the recipe is from",
+    "cuisine": "Cuisine type"
+  }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #f9f7f4;
+      color: #1a1a1a;
+      padding: 3rem 1.5rem;
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { background: #141414; color: #e8e6e2; }
+      a { color: #7fa8ff; }
+      .meta { color: #666; }
+    }
+    .back-link { font-size: 0.78rem; font-family: monospace; color: #888; text-decoration: none; display: inline-block; margin-bottom: 2.5rem; }
+    .back-link:hover { color: #555; }
+    h1 { font-size: 1.65rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 0.35rem; }
+    .meta { font-size: 0.78rem; font-family: monospace; color: #888; margin-bottom: 0.4rem; }
+    .rating { font-size: 1rem; margin-bottom: 2rem; color: #e8a020; letter-spacing: 1px; }
+    .review p { margin-bottom: 1.2rem; font-size: 1rem; }
+    .review ul { padding-left: 1.4rem; margin-bottom: 1.2rem; }
+    .review li { margin-bottom: 0.4rem; }
+  </style>
+</head>
+<body>
+
+  <a href="/" class="back-link">← back</a>
+
+  <h1>RECIPE NAME</h1>
+  <div class="meta">SOURCE · CUISINE</div>
+  <div class="rating">★★★★☆ &nbsp;(4 / 5)</div>
+
+  <!-- ═══════════════════════════════════════════════
+       FULL NOTES
+       Notes, tweaks, what worked, what didn't.
+       You can add ingredients or steps here too if you want.
+       ═══════════════════════════════════════════════ -->
+  <section class="review">
+    <p>How did it go? What would you change next time?</p>
+  </section>
+
+</body>
+</html>

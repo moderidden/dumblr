@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HaiSous — Dumblr</title>
+
+  <script type="application/json" id="entry-meta">
+  {
+    "title": "HaiSous",
+    "date": "2026-02-26",
+    "type": "meal",
+    "description": "",
+    "tags": [],
+    "pinned": false,
+    "restaurant": "HaiSous",
+    "cuisine": "Vietnamese",
+    "with": ["Lizzie", "Eric", "Breanna"],
+    "rating": 4.5
+  }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #f9f7f4;
+      color: #1a1a1a;
+      padding: 3rem 1.5rem;
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { background: #141414; color: #e8e6e2; }
+      a { color: #7fa8ff; }
+      .meta { color: #666; }
+    }
+    .back-link { font-size: 0.78rem; font-family: monospace; color: #888; text-decoration: none; display: inline-block; margin-bottom: 2.5rem; }
+    .back-link:hover { color: #555; }
+    h1 { font-size: 1.65rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 0.35rem; }
+    .rating { display: inline-flex; align-items: center; gap: 1px; font-size: 1.1rem; margin-bottom: 0.4rem; line-height: 1; }
+    .star { display: inline-block; color: #e8a020; }
+    .star-empty { color: #d0ccc6; }
+    .star-half { position: relative; color: #d0ccc6; }
+    .star-half::before { content: '★'; position: absolute; left: 0; top: 0; color: #e8a020; width: 50%; overflow: hidden; display: block; white-space: nowrap; }
+    .meta { font-size: 0.78rem; font-family: monospace; color: #888; margin-bottom: 2rem; }
+    .photos { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 2rem; }
+    .photos img { width: 100%; border-radius: 6px; display: block; object-fit: cover; aspect-ratio: 4/3; }
+    .photos img.wide { grid-column: 1 / -1; aspect-ratio: 16/9; }
+    .caption { font-size: 0.8rem; font-family: monospace; color: #888; margin-top: 0.3rem; }
+    .notes p { margin-bottom: 1.2rem; font-size: 1rem; }
+    .ordered { margin-bottom: 2rem; }
+    .receipt {
+      display: inline-block;
+      font-family: 'Courier New', Courier, monospace;
+      background: #fffef9;
+      border-left: 1px dashed #bbb;
+      border-right: 1px dashed #bbb;
+      padding: 1.1rem 1.75rem 1rem;
+      min-width: 220px;
+    }
+    .receipt::before, .receipt::after {
+      content: '';
+      display: block;
+      border-top: 1px dashed #bbb;
+      margin: 0 -1.75rem 0.9rem;
+    }
+    .receipt::after {
+      margin: 0.9rem -1.75rem 0;
+    }
+    .receipt-header {
+      text-align: center;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 0.65rem;
+    }
+    .receipt ul { list-style: none; padding: 0; }
+    .receipt li {
+      font-size: 0.82rem;
+      color: #222;
+      padding: 0.18rem 0;
+      letter-spacing: 0.01em;
+    }
+    @media (prefers-color-scheme: dark) {
+      .receipt { background: #1c1b16; border-color: #444; }
+      .receipt::before, .receipt::after { border-color: #444; }
+      .receipt-header { color: #666; }
+      .receipt li { color: #ccc; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="/meals.html" class="back-link">← back</a>
+
+  <h1>HaiSous</h1>
+  <div class="rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star star-half">★</span></div>
+  <div class="meta">Vietnamese · with Lizzie, Eric, Breanna · Feb 26, 2026</div>
+
+  <!-- ═══════════════════════════════════════════════
+       WHAT WE ORDERED
+       ═══════════════════════════════════════════════ -->
+  <section class="ordered">
+    <div class="receipt">
+      <div class="receipt-header">ordered</div>
+      <ul>
+        <li>Papaya Salad</li>
+        <li>Bún Chả</li>
+        <li>Crab Fried Rice</li>
+        <li>Chicken Curry</li>
+        <li>Coffee Cream Puff</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       PHOTOS
+       ═══════════════════════════════════════════════ -->
+  <div class="photos">
+    <img src="photo-1.jpg" alt="Papaya salad" />
+    <img src="photo-2.jpg" alt="Coffee cream puff" />
+    <img src="photo-3.jpg" alt="Table spread — Bun Cha, Crab Fried Rice, curry" class="wide" />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       NOTES
+       ═══════════════════════════════════════════════ -->
+  <section class="notes">
+  </section>
+
+</body>
+</html>

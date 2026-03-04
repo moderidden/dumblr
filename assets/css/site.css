@@ -1,0 +1,696 @@
+/* ============================================================
+   site.css — all styles for the site chrome
+   Individual entries can have their own styles and override anything.
+   ============================================================ */
+
+/* ── Color tokens (light mode defaults) ── */
+:root {
+  --bg:          #f9f7f4;
+  --bg-card:     #ffffff;
+  --border:      #e4e0da;
+  --text:        #1a1a1a;
+  --text-muted:  #888;
+  --accent:      #3a5ccc;
+  --accent-hover:#2a4ab8;
+  --star:        #e8a020;   /* amber for star ratings */
+  --star-empty:  var(--border);
+  --radius:      10px;
+  --shadow:      0 1px 4px rgba(0,0,0,0.07);
+  --card-hover:  0 4px 16px rgba(0,0,0,0.10);
+  --transition:  0.2s ease;
+
+  /* Font stack — Inter for everything, with system fallbacks */
+  --font:        'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:   ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace;
+
+  /*
+    Font weight conventions:
+      400 — body copy, descriptions
+      500 — nav links, card meta
+      600 — card titles, section labels, headings
+      700 — site title, page h1
+  */
+}
+
+/* Dark mode — applied when data-theme="dark" on <html>,
+   or automatically when the OS is in dark mode and data-theme="auto" */
+[data-theme="dark"],
+[data-theme="auto"] {
+  --bg:          #141414;
+  --bg-card:     #1e1e1e;
+  --border:      #2e2e2e;
+  --text:        #e8e6e2;
+  --text-muted:  #666;
+  --accent:      #7fa8ff;
+  --accent-hover:#a0c0ff;
+  --star:        #f0b445;
+  --shadow:      0 1px 4px rgba(0,0,0,0.4);
+  --card-hover:  0 4px 16px rgba(0,0,0,0.5);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* If OS is in light mode and theme is auto, revert to light */
+@media (prefers-color-scheme: light) {
+  [data-theme="auto"] {
+    --bg:          #f9f7f4;
+    --bg-card:     #ffffff;
+    --border:      #e4e0da;
+    --text:        #1a1a1a;
+    --text-muted:  #888;
+    --accent:      #3a5ccc;
+    --accent-hover:#2a4ab8;
+    --star:        #e8a020;
+    --shadow:      0 1px 4px rgba(0,0,0,0.07);
+    --card-hover:  0 4px 16px rgba(0,0,0,0.10);
+  }
+}
+
+/* ── Reset & base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover { color: var(--accent-hover); }
+
+/* ── Header ── */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  height: 56px;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 10;
+  gap: 1rem;
+}
+
+.site-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.title-insert {
+  display: inline-block;
+  overflow: hidden;
+  max-width: 0;
+  white-space: nowrap;
+  color: #e6b800;
+  transition: max-width 0.1s ease-in;
+  vertical-align: bottom;
+}
+.site-title:hover {
+  color: var(--text);
+}
+.site-title:hover .title-insert {
+  max-width: 8rem;
+  transition: max-width 0.38s cubic-bezier(0.34, 1.1, 0.64, 1);
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* ── Sidebar layout wrapper ── */
+/* padding-left reserves space for the fixed sidebar */
+.site-layout {
+  flex: 1;
+  padding-left: 160px;
+}
+
+/* ── Sidebar ── */
+/* position: fixed keeps it completely still during scroll */
+.site-sidebar {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  width: 160px;
+  height: calc(100vh - 56px);
+  padding: 1.5rem 0.75rem 1.5rem 1.25rem;
+  background: var(--bg);
+  z-index: 5;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.site-sidebar::-webkit-scrollbar { display: none; }
+
+.sidebar-photo {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius);
+  margin-bottom: 1.25rem;
+  object-fit: cover;
+}
+
+/* Section headings — monospace, muted, matches card type tag style */
+.sidebar-section-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  padding: 0 0.4rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.35rem;
+  user-select: none;
+}
+.sidebar-section-label:first-child {
+  margin-top: 0;
+}
+
+/* Links use the same monospace font as the section labels */
+.sidebar-link {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 0.22rem 0.4rem 0.22rem 1rem; /* left indent under section labels */
+  border-radius: 6px;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.sidebar-link:hover {
+  color: #e6b800;
+}
+.sidebar-link.active {
+  color: var(--text);
+}
+
+/* ── Buttons ── */
+button {
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  transition: color var(--transition);
+}
+button:hover {
+  color: var(--text-muted);
+}
+
+#theme-toggle {
+  font-size: 1.05rem;
+  padding: 0.35rem 0.6rem;
+}
+
+/* ── Main layout ── */
+.site-main {
+  flex: 1;
+  min-width: 0;
+  max-width: 860px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ── Section labels (month headings on index page) ── */
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+/* ── Entry grid ── */
+.entry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+/* ── Entry card ── */
+.entry-card {
+  display: block;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem;
+  box-shadow: var(--shadow);
+  transition: box-shadow var(--transition), transform var(--transition);
+  color: var(--text);
+  text-decoration: none;
+}
+.entry-card:hover {
+  box-shadow: var(--card-hover);
+  transform: translateY(-2px);
+  color: var(--text);
+}
+
+.card-type {
+  font-size: 0.68rem;
+  font-weight: 500;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.card-title {
+  font-size: 0.975rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 0.3rem;
+}
+
+.card-description {
+  font-size: 0.84rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-bottom: 0.5rem;
+
+  /* Clamp to 3 lines so short reviews show fully */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Type-specific metadata row (director · year · where, author · genre, etc.) */
+.card-meta-row {
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Star rating row on cards */
+.card-rating {
+  margin-bottom: 0.4rem;
+  line-height: 1;
+}
+
+.card-date {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+.card-pinned-badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
+/* ── Memory card: photo and comment ── */
+
+/* Photo displayed between card title and date */
+.card-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 3px);
+  display: block;
+  margin: 0.6rem 0 0.5rem;
+}
+
+/* Caption/comment line below the date */
+.card-comment {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-top: 0.3rem;
+}
+
+/* ── Star rating display ── */
+/*
+  Stars are rendered as inline spans.
+  Full stars use ★ in --star color.
+  Empty stars use ☆ in --star-empty color.
+  Half stars: the ★ character is shown in --star-empty, then a ::before
+  pseudo-element with ★ in --star color is clipped to 50% width — giving
+  a clean left-half filled star with no extra icon libraries needed.
+*/
+.star-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.star {
+  display: inline-block;
+}
+
+.star-full {
+  color: var(--star);
+}
+
+.star-half {
+  position: relative;
+  color: var(--star-empty);
+}
+.star-half::before {
+  content: '★';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--star);
+  width: 50%;
+  overflow: hidden;
+  display: block;
+  white-space: nowrap;
+}
+
+.star-empty {
+  color: var(--star-empty);
+}
+
+/* ── Polaroid grid (memories) ── */
+.polaroid-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2.5rem 2rem;
+  padding: 0.5rem 0 2rem;
+}
+
+.polaroid-card {
+  background: #fff;
+  padding: 10px 10px 20px;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.13), 0 1px 3px rgba(0,0,0,0.07);
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+.polaroid-card:nth-child(odd)  { transform: rotate(-1.5deg); }
+.polaroid-card:nth-child(even) { transform: rotate(1deg); }
+.polaroid-card:hover {
+  transform: rotate(0deg) translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+  z-index: 2;
+}
+
+.polaroid-photo-wrap {
+  position: relative;
+}
+.polaroid-photo-wrap img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+.polaroid-date-stamp {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.62rem;
+  font-weight: bold;
+  color: #e8508a;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 5px rgba(232,80,138,0.4);
+}
+.polaroid-caption {
+  font-family: 'Caveat', cursive;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-align: center;
+  padding-top: 8px;
+  line-height: 1.2;
+}
+
+/* ── Poster grid (Letterboxd-style layout for movies) ── */
+.poster-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1.25rem;
+}
+
+.poster-card {
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform var(--transition);
+}
+.poster-card:hover {
+  transform: translateY(-3px);
+  color: var(--text);
+}
+
+/* Portrait image area — 2:3 ratio like a real poster */
+.poster-image {
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 0.55rem;
+  box-shadow: var(--shadow);
+  transition: box-shadow var(--transition);
+}
+.poster-card:hover .poster-image {
+  box-shadow: var(--card-hover);
+}
+.poster-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Placeholder when no poster image is provided */
+.poster-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+.poster-info { padding: 0 0.1rem; }
+
+.poster-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 0.2rem;
+  color: var(--text);
+}
+
+.poster-rating {
+  margin-bottom: 0.2rem;
+  line-height: 1;
+}
+.poster-rating .star-rating { font-size: 0.75rem; }
+
+.poster-meta {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+/* ── Collection page heading & controls ── */
+.collection-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.collection-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.collection-count {
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+.sort-controls {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.sort-btn {
+  font-size: 0.73rem;
+  font-weight: 500;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  transition: all var(--transition);
+}
+.sort-btn-active {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+.sort-btn:hover:not(.sort-btn-active) {
+  border-color: var(--text-muted);
+  color: var(--text);
+}
+
+/* ── Footer ── */
+.site-footer {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+/* Month nav (index page) */
+.month-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.month-nav a {
+  font-size: 0.78rem;
+  font-weight: 500;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+.month-nav a:hover {
+  color: var(--text);
+}
+
+/* Back/home link on collection pages */
+.footer-home-link {
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+.footer-home-link:hover {
+  color: var(--text);
+}
+
+/* ── Utility classes ── */
+.hidden { display: none !important; }
+
+.empty-state {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-family: var(--font-mono);
+  text-align: center;
+  padding: 3rem 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 680px) {
+  /* Remove sidebar offset — sidebar becomes a horizontal strip */
+  .site-layout {
+    padding-left: 0;
+  }
+
+  /* Sidebar leaves fixed position and collapses to full-width strip */
+  .site-sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    background: transparent;
+    padding: 0;
+  }
+
+  .site-sidebar nav {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.4rem 0.75rem 0.5rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .site-sidebar nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide section labels on mobile — just show the links inline */
+  .sidebar-section-label {
+    display: none;
+  }
+
+  .sidebar-link {
+    white-space: nowrap;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .site-main {
+    padding: 1.5rem 1rem;
+  }
+
+  .entry-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .collection-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+}

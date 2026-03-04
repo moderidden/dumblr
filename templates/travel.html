@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PLACE — Dumblr</title>
+
+  <!--
+    ╔══════════════════════════════════════════════════════════════╗
+    ║  TRAVEL ENTRY METADATA                                       ║
+    ╠══════════════════════════════════════════════════════════════╣
+    ║  title        Trip or place name                             ║
+    ║  date         Date of visit or trip start — YYYY-MM-DD       ║
+    ║  type         Must stay exactly "travel"                     ║
+    ║  description  SHORT NOTE shown on the card (1–3 sentences)   ║
+    ║  pinned       true or false                                  ║
+    ║  location     City or specific place                         ║
+    ║  country      Country name                                   ║
+    ╚══════════════════════════════════════════════════════════════╝
+  -->
+  <script type="application/json" id="entry-meta">
+  {
+    "title": "PLACE OR TRIP NAME",
+    "date": "YYYY-MM-DD",
+    "type": "travel",
+    "description": "SHORT NOTE — shown on the card. 1–3 sentences.",
+    "tags": [],
+    "pinned": false,
+    "location": "City / Place",
+    "country": "Country"
+  }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #f9f7f4;
+      color: #1a1a1a;
+      padding: 3rem 1.5rem;
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { background: #141414; color: #e8e6e2; }
+      a { color: #7fa8ff; }
+      .meta { color: #666; }
+    }
+    .back-link { font-size: 0.78rem; font-family: monospace; color: #888; text-decoration: none; display: inline-block; margin-bottom: 2.5rem; }
+    .back-link:hover { color: #555; }
+    h1 { font-size: 1.65rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 0.35rem; }
+    .meta { font-size: 0.78rem; font-family: monospace; color: #888; margin-bottom: 2rem; }
+    .review p { margin-bottom: 1.2rem; font-size: 1rem; }
+  </style>
+</head>
+<body>
+
+  <a href="/" class="back-link">← back</a>
+
+  <h1>PLACE OR TRIP NAME</h1>
+  <div class="meta">LOCATION · COUNTRY</div>
+
+  <!-- ═══════════════════════════════════════════════
+       FULL NOTES
+       Impressions, highlights, things to remember.
+       Photos can be embedded inline as base64 images.
+       ═══════════════════════════════════════════════ -->
+  <section class="review">
+    <p>Your travel notes go here.</p>
+  </section>
+
+</body>
+</html>

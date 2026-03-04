@@ -1,0 +1,243 @@
+{
+  "generated": "2026-03-04T17:10:54.590Z",
+  "entries": [
+    {
+      "path": "entries/2026-02/0228-apres-ski",
+      "title": "Après Ski Party",
+      "date": "2026-02-28",
+      "type": "memory",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "photo": "thumb.jpg",
+      "comment": "hosted by Katie and Ben"
+    },
+    {
+      "path": "entries/2026-02/0226-haisous",
+      "title": "HaiSous",
+      "date": "2026-02-26",
+      "type": "meal",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "restaurant": "HaiSous",
+      "cuisine": "Vietnamese",
+      "with": [
+        "Lizzie",
+        "Eric",
+        "Breanna"
+      ],
+      "rating": 4.5
+    },
+    {
+      "path": "entries/2026-02/0223-half-his-age",
+      "title": "Half His Age",
+      "date": "2026-02-23",
+      "type": "book",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "rating": 2.5,
+      "author": "Jennette McCurdy",
+      "year": 2026,
+      "pages": 250,
+      "genre": "",
+      "poster": "https://covers.openlibrary.org/b/id/15166161-L.jpg"
+    },
+    {
+      "path": "entries/2026-02/0222-frankenstein",
+      "title": "Frankenstein",
+      "date": "2026-02-22",
+      "type": "movie",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "rating": 3.5,
+      "director": "Guillermo del Toro",
+      "year": 2025,
+      "where": "home (Netflix)",
+      "with": [
+        "Breanna"
+      ],
+      "poster": "https://image.tmdb.org/t/p/w300/g4JtvGlQO7DByTI6frUobqvSL3R.jpg"
+    },
+    {
+      "path": "entries/2026-02/0214-before-sunset",
+      "title": "Before Sunset",
+      "date": "2026-02-14",
+      "type": "movie",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "rating": 5,
+      "director": "Richard Linklater",
+      "year": 2004,
+      "where": "home",
+      "with": [
+        "Breanna"
+      ],
+      "poster": "https://image.tmdb.org/t/p/w300/4sW5XH9ZfYXpvFzev00S1IGAEbg.jpg"
+    },
+    {
+      "path": "entries/2026-02/0211-it-was-just-an-accident",
+      "title": "It Was Just An Accident",
+      "date": "2026-02-11",
+      "type": "movie",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "rating": 4,
+      "director": "Jafar Panahi",
+      "year": 2025,
+      "where": "home",
+      "with": [],
+      "poster": "https://image.tmdb.org/t/p/w300/eNYGj2DG3n8OrVPTfYunpPW9uas.jpg"
+    },
+    {
+      "path": "entries/2026-02/0206-blue-moon",
+      "title": "Blue Moon",
+      "date": "2026-02-06",
+      "type": "movie",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "rating": 3.5,
+      "director": "Richard Linklater",
+      "year": 2025,
+      "where": "home",
+      "with": [],
+      "poster": "https://image.tmdb.org/t/p/w300/nij3i5ziQdqfiK29gb4rX1bkmVy.jpg"
+    },
+    {
+      "path": "entries/2026-02/0203-stereophonic",
+      "title": "Stereophonic",
+      "date": "2026-02-03",
+      "type": "theater",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "rating": 4,
+      "playwright": "David Adjmi",
+      "venue": "CBIC",
+      "with": [
+        "Breanna",
+        "Dane",
+        "Casey"
+      ]
+    },
+    {
+      "path": "entries/2026-02/0201-how-to-eat",
+      "title": "How to Eat",
+      "date": "2026-02-01",
+      "type": "book",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "rating": 4.5,
+      "author": "Mark Bittman, David L. Katz",
+      "year": 2020,
+      "pages": 200,
+      "genre": "",
+      "poster": "https://covers.openlibrary.org/b/id/9296940-L.jpg"
+    },
+    {
+      "path": "entries/2026-01/0131-gut-punch",
+      "title": "Gut Punch",
+      "date": "2026-01-31",
+      "type": "theater",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "rating": 5,
+      "playwright": "Breanna Lucas",
+      "venue": "Bramble Arts Loft",
+      "with": []
+    },
+    {
+      "path": "entries/2026-01/0106-marty-supreme",
+      "title": "Marty Supreme",
+      "date": "2026-01-06",
+      "type": "movie",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "rating": 4.5,
+      "director": "Josh Safdie",
+      "year": 2025,
+      "where": "AMC Village Crossing",
+      "with": [
+        "Dane"
+      ],
+      "poster": "https://image.tmdb.org/t/p/w300/lYWEXbQgRTR4ZQleSXAgRbxAjvq.jpg"
+    },
+    {
+      "path": "entries/2026-01/0105-foster",
+      "title": "Foster",
+      "date": "2026-01-05",
+      "type": "book",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "rating": 4.5,
+      "author": "Claire Keegan",
+      "year": 2010,
+      "pages": 92,
+      "genre": "",
+      "poster": "https://covers.openlibrary.org/b/id/13107039-L.jpg"
+    },
+    {
+      "path": "entries/2024-07/0701-nosh-notes",
+      "title": "Nosh Notes",
+      "date": "2024-07-01",
+      "type": "interactive",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "url": "https://nosh-notes.netlify.app"
+    },
+    {
+      "path": "entries/2022-07/0713-outfit",
+      "title": "Gray Corduroy Button Down",
+      "date": "2022-07-13",
+      "type": "outfit",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "occasion": "",
+      "videoUrl": "https://www.tiktok.com/@davidsews/video/7119894843660389678"
+    },
+    {
+      "path": "entries/2022-07/0710-outfit",
+      "title": "Plaid Shirt for Scott",
+      "date": "2022-07-10",
+      "type": "outfit",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "occasion": "",
+      "videoUrl": "https://www.tiktok.com/@davidsews/video/7118824863938301230"
+    },
+    {
+      "path": "entries/2022-07/0706-outfit",
+      "title": "Beige Shacket",
+      "date": "2022-07-06",
+      "type": "outfit",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "occasion": "",
+      "videoUrl": "https://www.tiktok.com/@davidsews/video/7117480383855496494"
+    },
+    {
+      "path": "entries/2022-06/0629-outfit",
+      "title": "Yellow Seersucker Button Down",
+      "date": "2022-06-29",
+      "type": "outfit",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "occasion": "",
+      "videoUrl": "https://www.tiktok.com/@davidsews/video/7114780747357064490"
+    }
+  ]
+}
