@@ -6,7 +6,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/entry-header.css" />
+  <link rel="stylesheet" href="/assets/css/site.css" />
   <title>Marty Supreme — Dumblr</title>
 
   <script type="application/json" id="entry-meta">
@@ -52,11 +52,51 @@
     .star-half::before { content: '★'; position: absolute; left: 0; top: 0; color: #e8a020; width: 50%; overflow: hidden; display: block; white-space: nowrap; }
     .meta { font-size: 0.78rem; font-family: monospace; color: #888; margin-bottom: 2rem; }
     .review p { margin-bottom: 1.2rem; font-size: 1rem; }
+      /* Full site chrome overrides */
+    body { max-width: none !important; margin: 0 !important; padding: 0 !important; background: var(--bg) !important; color: var(--text) !important; }
+    .entry-body { max-width: 640px; line-height: 1.7; }
   </style>
+  <script>(function(){var s=localStorage.getItem('theme')||'auto';document.documentElement.setAttribute('data-theme',s);})();</script>
 </head>
 <body>
+  <header class="site-header">
+    <a href="/" class="site-title">Dumblr</a>
+    <div class="header-actions">
+      <button id="random-btn" title="Random entry">&#9862; random</button>
+      <button id="theme-toggle" aria-label="Toggle theme">&#9788;</button>
+    </div>
+  </header>
 
-  <a href="/movies.html" class="back-link">← back</a>
+  <div class="site-layout">
+    <aside class="site-sidebar">
+      <nav>
+        <div class="nav-section">
+          <span class="sidebar-section-label">log</span>
+          <a href="/movies.html" class="sidebar-link">movies</a>
+          <a href="/books.html" class="sidebar-link">books</a>
+          <a href="/theater.html" class="sidebar-link">shows</a>
+          <a href="/meals.html" class="sidebar-link">meals</a>
+        </div>
+        <div class="nav-section">
+          <span class="sidebar-section-label">life</span>
+          <a href="/notes.html" class="sidebar-link">notes</a>
+          <a href="/memories.html" class="sidebar-link">memories</a>
+          <a href="/travel.html" class="sidebar-link">travel</a>
+          <a href="/shelf.html" class="sidebar-link">shelf</a>
+          <a href="/outfits.html" class="sidebar-link">outfits</a>
+        </div>
+        <div class="nav-section">
+          <span class="sidebar-section-label">for fun</span>
+          <a href="/quotes.html" class="sidebar-link">quotes</a>
+          <a href="/interactive.html" class="sidebar-link">apps</a>
+          <a href="/top5.html" class="sidebar-link">top 5</a>
+          <a href="/press-passes.html" class="sidebar-link">press passes</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="site-main">
+      <article class="entry-body">
 
   <h1>Marty Supreme</h1>
   <div class="rating"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star star-half">★</span></div>
@@ -67,6 +107,10 @@
        ═══════════════════════════════════════════════ -->
   <section class="review">
   </section>
+
+      </article><!-- /.entry-body -->
+    </main>
+  </div><!-- /.site-layout -->
 
   <script src="/assets/js/entry.js"></script>
 </body>

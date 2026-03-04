@@ -644,6 +644,12 @@ button:hover {
   padding: 3rem 0;
 }
 
+/* ── Entry body (constrains reading width inside .site-main) ── */
+.entry-body {
+  max-width: 640px;
+  line-height: 1.7;
+}
+
 .coming-soon {
   font-size: 0.88rem;
   font-family: var(--font-mono);
