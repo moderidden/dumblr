@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-04T17:10:54.590Z",
+  "generated": "2026-03-04T22:58:58.530Z",
   "entries": [
     {
       "path": "entries/2026-02/0228-apres-ski",
@@ -154,6 +154,17 @@
       "with": []
     },
     {
+      "path": "entries/2026-01/0108-our-wedding-tasting",
+      "title": "Our Wedding Tasting",
+      "date": "2026-01-08",
+      "type": "memory",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "photo": "thumb.jpg",
+      "comment": "Blue Plate will be catering our wedding!"
+    },
+    {
       "path": "entries/2026-01/0106-marty-supreme",
       "title": "Marty Supreme",
       "date": "2026-01-06",
@@ -184,6 +195,25 @@
       "pages": 92,
       "genre": "",
       "poster": "https://covers.openlibrary.org/b/id/13107039-L.jpg"
+    },
+    {
+      "path": "entries/2025-12/1227-f1",
+      "title": "F1",
+      "date": "2025-12-27",
+      "type": "movie",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "rating": 3.5,
+      "director": "Joseph Kosinski",
+      "year": 2025,
+      "where": "Breanna's Home",
+      "with": [
+        "Breanna",
+        "Brian",
+        "Kate"
+      ],
+      "poster": "https://image.tmdb.org/t/p/w300/vqBmyAj0Xm9LnS1xe1MSlMAJyHq.jpg"
     },
     {
       "path": "entries/2024-07/0701-nosh-notes",
