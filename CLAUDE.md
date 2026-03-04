@@ -50,6 +50,7 @@ Personal creative journal/logbook. Static site hosted on Netlify. No framework, 
 - `rating`: 0–5, halves supported (e.g. 4.5)
 - `poster`: TMDB CDN — no API key needed for image URLs
 - Uses **poster layout** (Letterboxd-style grid) — config in `movies.html` has `"layout": "poster"`
+- **Entry page**: include `<div class="entry-header">` with `<img class="entry-poster">` and `<div class="entry-header-text">` wrapping the h1/rating/meta
 
 ### book
 ```json
@@ -70,6 +71,7 @@ Personal creative journal/logbook. Static site hosted on Netlify. No framework, 
 ```
 - Uses **poster layout** — config in `books.html` has `"layout": "poster"`
 - Cover images: Open Library CDN — `https://covers.openlibrary.org/b/id/{ID}-L.jpg`
+- **Entry page**: same `entry-header` / `entry-poster` / `entry-header-text` pattern as movie entries
 
 ### theater
 ```json
