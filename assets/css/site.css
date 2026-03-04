@@ -188,8 +188,13 @@ a:hover { color: var(--accent-hover); }
   margin-bottom: 0.35rem;
   user-select: none;
 }
-.sidebar-section-label:first-child {
+.nav-section:first-child .sidebar-section-label {
   margin-top: 0;
+}
+
+/* Transparent wrapper on desktop — layout unchanged */
+.nav-section {
+  display: contents;
 }
 
 /* Links use the same monospace font as the section labels */
@@ -660,36 +665,40 @@ button:hover {
     padding: 0;
   }
 
-  /* Nav becomes a wrapping flex container — each section label forces a new row */
+  /* Nav is a vertical stack of 3 rows */
   .site-sidebar nav {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.1rem;
+    flex-direction: column;
+    gap: 0.05rem;
     padding: 0.3rem 0.75rem 0.5rem;
   }
 
-  /* Section labels span full width so links wrap beneath each one */
+  /* Each section is one horizontal row: label + links */
+  .nav-section {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  /* Section labels: small, muted, non-clickable */
   .sidebar-section-label {
     display: block;
-    flex-basis: 100%;
-    font-size: 0.6rem;
+    flex-shrink: 0;
+    font-size: 0.58rem;
     font-weight: 600;
     font-family: var(--font-mono);
     letter-spacing: 0.08em;
     color: var(--text-muted);
-    opacity: 0.6;
-    padding: 0.4rem 0.4rem 0.1rem;
-    margin-top: 0.2rem;
-    user-select: none;
-  }
-  .sidebar-section-label:first-child {
+    opacity: 0.55;
+    padding: 0.2rem 0.3rem 0.2rem 0;
     margin-top: 0;
+    user-select: none;
   }
 
   .sidebar-link {
     white-space: nowrap;
-    padding: 0.25rem 0.55rem;
+    padding: 0.2rem 0.45rem;
   }
 
   .site-main {
