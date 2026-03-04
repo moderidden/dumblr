@@ -237,7 +237,6 @@ button:hover {
 .site-main {
   flex: 1;
   min-width: 0;
-  max-width: 860px;
   padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -642,7 +641,12 @@ button:hover {
 
 /* ── Responsive ── */
 @media (max-width: 680px) {
-  /* Remove sidebar offset — sidebar becomes a horizontal strip */
+  /* Disable title expand animation on mobile */
+  .site-title:hover .title-insert {
+    max-width: 0;
+  }
+
+  /* Remove sidebar offset — sidebar becomes a top strip */
   .site-layout {
     padding-left: 0;
   }
@@ -656,28 +660,36 @@ button:hover {
     padding: 0;
   }
 
+  /* Nav becomes a wrapping flex container — each section label forces a new row */
   .site-sidebar nav {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 0.1rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 0.4rem 0.75rem 0.5rem;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .site-sidebar nav::-webkit-scrollbar {
-    display: none;
+    padding: 0.3rem 0.75rem 0.5rem;
   }
 
-  /* Hide section labels on mobile — just show the links inline */
+  /* Section labels span full width so links wrap beneath each one */
   .sidebar-section-label {
-    display: none;
+    display: block;
+    flex-basis: 100%;
+    font-size: 0.6rem;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    opacity: 0.6;
+    padding: 0.4rem 0.4rem 0.1rem;
+    margin-top: 0.2rem;
+    user-select: none;
+  }
+  .sidebar-section-label:first-child {
+    margin-top: 0;
   }
 
   .sidebar-link {
     white-space: nowrap;
-    padding: 0.3rem 0.6rem;
+    padding: 0.25rem 0.55rem;
   }
 
   .site-main {
