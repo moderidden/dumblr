@@ -676,7 +676,7 @@ button:hover {
   /* Each section is one horizontal row: label + links */
   .nav-section {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     flex-wrap: wrap;
     gap: 0;
   }
