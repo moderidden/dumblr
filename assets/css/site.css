@@ -608,8 +608,21 @@ button:hover {
 .month-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem 1.25rem;
   justify-content: center;
+}
+
+.month-nav-group {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.month-nav-year {
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--text);
 }
 
 .month-nav a {

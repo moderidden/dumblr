@@ -40,6 +40,13 @@ function formatMonthLabel(yyyymm) {
   return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 }
 
+// Format "2026-03" → "Mar"
+function formatShortMonth(yyyymm) {
+  const [year, month] = yyyymm.split('-');
+  const date = new Date(year, parseInt(month, 10) - 1, 1);
+  return date.toLocaleDateString('en-US', { month: 'short' });
+}
+
 // Format "2026-03-01" → "Mar 1"
 function formatShortDate(dateStr) {
   const [year, month, day] = dateStr.split('-').map(Number);
@@ -163,18 +170,35 @@ fetch('manifest.json')
     const nav = document.getElementById('month-nav');
     const olderKeys = Object.keys(olderMonths).sort().reverse();
     if (olderKeys.length > 0) {
+      // Group keys by year
+      const byYear = {};
       olderKeys.forEach(key => {
-        const a = document.createElement('a');
-        a.href = `#month-${key}`;
-        a.textContent = formatMonthLabel(key);
+        const year = key.slice(0, 4);
+        if (!byYear[year]) byYear[year] = [];
+        byYear[year].push(key);
+      });
 
-        // Clicking a nav link: show a full month section below the footer
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          showOlderMonth(key, olderMonths[key]);
+      Object.keys(byYear).sort().reverse().forEach(year => {
+        const group = document.createElement('span');
+        group.className = 'month-nav-group';
+
+        const yearEl = document.createElement('strong');
+        yearEl.className = 'month-nav-year';
+        yearEl.textContent = year;
+        group.appendChild(yearEl);
+
+        byYear[year].forEach(key => {
+          const a = document.createElement('a');
+          a.href = `#month-${key}`;
+          a.textContent = formatShortMonth(key);
+          a.addEventListener('click', (e) => {
+            e.preventDefault();
+            showOlderMonth(key, olderMonths[key]);
+          });
+          group.appendChild(a);
         });
 
-        nav.appendChild(a);
+        nav.appendChild(group);
       });
     }
 
