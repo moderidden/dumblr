@@ -5,7 +5,7 @@
 
 /* ── Color tokens (light mode defaults) ── */
 :root {
-  --bg:          #f9f7f4;
+  --bg:          #f0ebe2;
   --bg-card:     #ffffff;
   --border:      #e4e0da;
   --text:        #1a1a1a;
@@ -55,7 +55,7 @@
 /* If OS is in light mode and theme is auto, revert to light */
 @media (prefers-color-scheme: light) {
   [data-theme="auto"] {
-    --bg:          #f9f7f4;
+    --bg:          #f0ebe2;
     --bg-card:     #ffffff;
     --border:      #e4e0da;
     --text:        #1a1a1a;
