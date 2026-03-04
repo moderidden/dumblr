@@ -287,7 +287,10 @@ index.html has no active link (home page).
 npm run build        # regenerates manifest.json from all entries
 ```
 
-Deploy: push to git → Netlify auto-deploys. Or drag the folder into the Netlify UI.
+**Deploy workflow:**
+- After making changes, run `npm run build` and commit — but **do NOT push**.
+- Only run `git push` when the user explicitly says "deploy".
+- Netlify auto-deploys on push to `main`.
 
 ---
 
