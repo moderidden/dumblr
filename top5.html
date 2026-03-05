@@ -9,21 +9,86 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/site.css" />
 
-  <script type="application/json" id="collection-config">
-  {
-    "type": "top5",
-    "title": "Top 5",
-    "sortOptions": ["date"],
-    "defaultSort": "date"
-  }
-  </script>
+  <style>
+    .top5-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .notebook-paper {
+      border-radius: 4px;
+      box-shadow: 3px 4px 18px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.07);
+      overflow: hidden;
+      background: white;
+    }
+
+    .notebook-head {
+      padding: 1.4rem 2rem 1rem;
+      background: white;
+      border-bottom: 2.5px solid #e87878;
+    }
+
+    .notebook-head h2 {
+      font-family: 'Caveat', cursive;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: #111;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .notebook-body {
+      background: white;
+      padding: 0 2rem 0.8rem;
+    }
+
+    .notebook-rule {
+      height: 0.7rem;
+      border-bottom: 1px solid #8cbde8;
+      margin: 0 -2rem;
+    }
+
+    .notebook-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: item;
+    }
+
+    .notebook-list li {
+      font-family: 'Caveat', cursive;
+      font-size: 1.45rem;
+      height: 2.5rem;
+      line-height: 2.5rem;
+      counter-increment: item;
+      color: #1a1a5e;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+      border-bottom: 1px solid #8cbde8;
+      margin: 0 -2rem;
+      padding: 0 2rem;
+    }
+
+    .notebook-list li::before {
+      content: counter(item) ".";
+      font-family: 'Caveat', cursive;
+      font-size: 1.2rem;
+      color: #bbb;
+      flex-shrink: 0;
+      width: 1.6rem;
+      text-align: right;
+    }
+  </style>
 </head>
 <body>
 
   <header class="site-header">
     <a href="/" class="site-title">Dumblr</a>
     <div class="header-actions">
-      <button id="random-btn" title="Random top 5">&#9862; random</button>
       <button id="theme-toggle" aria-label="Toggle theme">&#9788;</button>
     </div>
   </header>
@@ -58,12 +123,26 @@
 
   <main class="site-main">
     <h1 class="collection-heading">Top 5</h1>
-    <div class="collection-controls">
-      <span class="collection-count" id="collection-count"></span>
-      <div class="sort-controls" id="sort-controls"></div>
+
+    <div class="top5-grid">
+
+      <div class="notebook-paper">
+        <div class="notebook-head">
+          <h2>Top 5 Movies of 2025</h2>
+        </div>
+        <div class="notebook-body">
+          <div class="notebook-rule"></div>
+          <ol class="notebook-list">
+            <li>One Battle After Another</li>
+            <li>Marty Supreme</li>
+            <li>Sinners</li>
+            <li>Wake Up, Dead Man</li>
+            <li>The Phoenician Scheme</li>
+          </ol>
+        </div>
+      </div>
+
     </div>
-    <div id="collection-grid" class="entry-grid"></div>
-    <p id="empty-state" class="empty-state hidden">No top 5 entries yet.</p>
   </main>
   </div><!-- /.site-layout -->
 
@@ -71,6 +150,23 @@
     <a href="/" class="footer-home-link">← all entries</a>
   </footer>
 
-  <script src="assets/js/collection.js"></script>
+  <script>
+    (function() {
+      const el = document.querySelector('.site-title');
+      if (!el) return;
+      el.innerHTML = 'D<span class="title-insert">avid\'s T</span>umblr';
+    })();
+    (function() {
+      const saved = localStorage.getItem('theme') || 'auto';
+      document.documentElement.setAttribute('data-theme', saved);
+    })();
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'auto' ? 'dark' : current === 'dark' ? 'light' : 'auto';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  </script>
 </body>
 </html>

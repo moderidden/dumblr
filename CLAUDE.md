@@ -211,25 +211,28 @@ Personal creative journal/logbook. Static site hosted on Netlify. No framework, 
 ```
 
 ### top5
-```json
-{
-  "title": "",
-  "date": "YYYY-MM-DD",
-  "type": "top5",
-  "description": "",
-  "tags": [],
-  "pinned": false
-}
-```
-- Entry page uses a **notebook paper design** — white card with drop shadow, Caveat handwriting font
-- Load `family=Caveat:wght@400;600;700` alongside Inter in the `<link>` tag
-- Structure: `.notebook-paper` > `.notebook-head` (title + pink rule) + `.notebook-body` (ruled lines + list)
+- **No individual entry files.** All top 5 lists live directly in `top5.html` as inline HTML — do NOT create entries in `entries/`.
+- To add a new list, add another `<div class="notebook-paper">` block inside `.top5-grid` in `top5.html`
+- `top5.html` is a static page (no `collection.js`) — it has inline JS for theme toggle and title hover
+- Layout: CSS grid `repeat(auto-fill, minmax(260px, 1fr))` — fills 2+ columns automatically
+- Notebook structure per list:
+  ```html
+  <div class="notebook-paper">
+    <div class="notebook-head"><h2>Title</h2></div>
+    <div class="notebook-body">
+      <div class="notebook-rule"></div>
+      <ol class="notebook-list">
+        <li>Item one</li>
+        ...
+      </ol>
+    </div>
+  </div>
+  ```
 - Pink rule: `border-bottom: 2.5px solid #e87878` on `.notebook-head`
-- Ruled lines: `border-bottom: 1px solid #8cbde8` on each `li` and `.notebook-rule`; use `margin: 0 -2rem; padding: 0 2rem` to extend lines full width
-- One `.notebook-rule` blank line before the list (`height: 0.7rem`); small `padding-bottom` after the last item (no trailing rules)
+- Ruled lines: `border-bottom: 1px solid #8cbde8` on each `li` and `.notebook-rule`; `margin: 0 -2rem; padding: 0 2rem` to extend full width
+- One `.notebook-rule` blank line before the list (`height: 0.7rem`); `padding-bottom: 0.8rem` on `.notebook-body` after last item
 - List items: `color: #1a1a5e` (dark navy), numbers via `::before` counter in `color: #bbb`
-- `top5.html` loads Caveat font and uses `collection.js` with `"type": "top5"`
-- Collection card renders a CSS mini-notebook preview (`.top5-nb-preview`) — no poster image needed
+- Caveat font loaded in `top5.html` head; no `npm run build` needed when editing `top5.html`
 
 ---
 
