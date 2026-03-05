@@ -303,6 +303,39 @@ const cardBuilders = {
     return buildBaseCard(entry);
   },
 
+  top5(entry) {
+    const a = document.createElement('a');
+    a.className = 'entry-card top5-card';
+    a.href = entry.path + '/';
+
+    // Mini notebook preview
+    const nb = document.createElement('div');
+    nb.className = 'top5-nb-preview';
+
+    const head = document.createElement('div');
+    head.className = 'top5-nb-head';
+    head.textContent = entry.title;
+
+    const lines = document.createElement('div');
+    lines.className = 'top5-nb-lines';
+
+    nb.appendChild(head);
+    nb.appendChild(lines);
+    a.appendChild(nb);
+
+    // Date below the preview
+    if (entry.date) {
+      const [y, m, d] = entry.date.split('-').map(Number);
+      const dateEl = document.createElement('div');
+      dateEl.className = 'top5-card-date';
+      dateEl.textContent = new Date(y, m - 1, d)
+        .toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      a.appendChild(dateEl);
+    }
+
+    return a;
+  },
+
   memory(entry) {
     const a = document.createElement('a');
     a.className = 'polaroid-card';

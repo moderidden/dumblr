@@ -40,11 +40,11 @@ function formatMonthLabel(yyyymm) {
   return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 }
 
-// Format "2026-03" → "Mar"
-function formatShortMonth(yyyymm) {
+// Format "2026-03" → "March"
+function formatMonthName(yyyymm) {
   const [year, month] = yyyymm.split('-');
   const date = new Date(year, parseInt(month, 10) - 1, 1);
-  return date.toLocaleDateString('en-US', { month: 'short' });
+  return date.toLocaleDateString('en-US', { month: 'long' });
 }
 
 // Format "2026-03-01" → "Mar 1"
@@ -54,16 +54,9 @@ function formatShortDate(dateStr) {
   return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
 
-// Get YYYY-MM string for today and last month
-function getCurrentMonthKey() {
-  const now = new Date();
-  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
-}
-
-function getLastMonthKey() {
-  const now = new Date();
-  const d = new Date(now.getFullYear(), now.getMonth() - 1, 1);
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+// Get current year as string
+function getCurrentYear() {
+  return String(new Date().getFullYear());
 }
 
 // Build one entry card element
@@ -113,6 +106,35 @@ function renderGrid(entries, gridEl) {
   entries.forEach(entry => gridEl.appendChild(buildCard(entry)));
 }
 
+// Render entries grouped by month into a container element
+function renderYearByMonth(entries, containerEl) {
+  const byMonth = {};
+  entries.forEach(e => {
+    const key = e.date ? e.date.slice(0, 7) : 'unknown';
+    if (!byMonth[key]) byMonth[key] = [];
+    byMonth[key].push(e);
+  });
+
+  Object.keys(byMonth).sort().reverse().forEach(key => {
+    const monthEntries = byMonth[key].slice().sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+    const group = document.createElement('div');
+    group.className = 'month-group';
+
+    const label = document.createElement('h3');
+    label.className = 'month-group-label';
+    label.textContent = formatMonthName(key);
+
+    const grid = document.createElement('div');
+    grid.className = 'entry-grid';
+
+    group.appendChild(label);
+    group.appendChild(grid);
+    containerEl.appendChild(group);
+    renderGrid(monthEntries, grid);
+  });
+}
+
 // ── Main: load manifest and render ───────────────────────────────────────────
 fetch('manifest.json')
   .then(res => {
@@ -127,21 +149,19 @@ fetch('manifest.json')
       return;
     }
 
-    const currentKey = getCurrentMonthKey();
-    const lastKey    = getLastMonthKey();
+    const currentYear = getCurrentYear();
 
     // Separate entries into buckets
     const pinned      = entries.filter(e => e.pinned);
-    const currentMonth = entries.filter(e => e.date && e.date.startsWith(currentKey));
-    const lastMonth    = entries.filter(e => e.date && e.date.startsWith(lastKey));
+    const currentYearEntries = entries.filter(e => e.date && e.date.startsWith(currentYear));
 
-    // Older = anything before last month, grouped by YYYY-MM
-    const olderMonths = {};
+    // Older years = anything before current year, grouped by year
+    const olderYears = {};
     entries.forEach(e => {
-      const key = e.date ? e.date.slice(0, 7) : null;
-      if (!key || key === currentKey || key === lastKey) return;
-      if (!olderMonths[key]) olderMonths[key] = [];
-      olderMonths[key].push(e);
+      const year = e.date ? e.date.slice(0, 4) : null;
+      if (!year || year === currentYear) return;
+      if (!olderYears[year]) olderYears[year] = [];
+      olderYears[year].push(e);
     });
 
     // ── Pinned section ──
@@ -150,57 +170,29 @@ fetch('manifest.json')
       renderGrid(pinned, document.getElementById('pinned-grid'));
     }
 
-    // ── Current month ──
-    const currentLabel = document.getElementById('current-month-label');
-    currentLabel.textContent = formatMonthLabel(currentKey);
-    if (currentMonth.length > 0) {
-      renderGrid(currentMonth, document.getElementById('current-month-grid'));
+    // ── Current year ──
+    const currentLabel = document.getElementById('current-year-label');
+    currentLabel.textContent = currentYear;
+    const currentYearSection = document.getElementById('current-year-section');
+    if (currentYearEntries.length > 0) {
+      renderYearByMonth(currentYearEntries, currentYearSection);
     } else {
       currentLabel.textContent += ' — nothing yet';
     }
 
-    // ── Last month ──
-    if (lastMonth.length > 0) {
-      document.getElementById('last-month-section').classList.remove('hidden');
-      document.getElementById('last-month-label').textContent = formatMonthLabel(lastKey);
-      renderGrid(lastMonth, document.getElementById('last-month-grid'));
-    }
-
-    // ── Older months footer nav ──
-    const nav = document.getElementById('month-nav');
-    const olderKeys = Object.keys(olderMonths).sort().reverse();
-    if (olderKeys.length > 0) {
-      // Group keys by year
-      const byYear = {};
-      olderKeys.forEach(key => {
-        const year = key.slice(0, 4);
-        if (!byYear[year]) byYear[year] = [];
-        byYear[year].push(key);
+    // ── Older years footer nav ──
+    const nav = document.getElementById('year-nav');
+    const olderYearKeys = Object.keys(olderYears).sort().reverse();
+    olderYearKeys.forEach(year => {
+      const a = document.createElement('a');
+      a.href = `#year-${year}`;
+      a.textContent = year;
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        showOlderYear(year, olderYears[year]);
       });
-
-      Object.keys(byYear).sort().reverse().forEach(year => {
-        const group = document.createElement('span');
-        group.className = 'month-nav-group';
-
-        const yearEl = document.createElement('strong');
-        yearEl.className = 'month-nav-year';
-        yearEl.textContent = year;
-        group.appendChild(yearEl);
-
-        byYear[year].forEach(key => {
-          const a = document.createElement('a');
-          a.href = `#month-${key}`;
-          a.textContent = formatShortMonth(key);
-          a.addEventListener('click', (e) => {
-            e.preventDefault();
-            showOlderMonth(key, olderMonths[key]);
-          });
-          group.appendChild(a);
-        });
-
-        nav.appendChild(group);
-      });
-    }
+      nav.appendChild(a);
+    });
 
     // ── Random button ──
     document.getElementById('random-btn').addEventListener('click', () => {
@@ -215,27 +207,23 @@ fetch('manifest.json')
       'Could not load entries. Run `npm run build` first.';
   });
 
-// ── Show an older month inline when its nav link is clicked ──────────────────
-function showOlderMonth(key, entries) {
-  // Remove any previously expanded older month section
-  const existing = document.getElementById('older-month-expanded');
+// ── Show an older year inline when its nav link is clicked ───────────────────
+function showOlderYear(year, entries) {
+  // Remove any previously expanded older year section
+  const existing = document.getElementById('older-year-expanded');
   if (existing) existing.remove();
 
   const section = document.createElement('section');
-  section.id = 'older-month-expanded';
+  section.id = 'older-year-expanded';
 
   const label = document.createElement('h2');
   label.className = 'section-label';
-  label.textContent = formatMonthLabel(key);
-
-  const grid = document.createElement('div');
-  grid.className = 'entry-grid';
+  label.textContent = year;
 
   section.appendChild(label);
-  section.appendChild(grid);
 
   // Append inside main so it inherits the max-width/padding container
   document.querySelector('.site-main').appendChild(section);
-  renderGrid(entries, grid);
+  renderYearByMonth(entries, section);
   section.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }

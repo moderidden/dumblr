@@ -6,14 +6,24 @@
   <title>Top 5 — Dumblr</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/site.css" />
+
+  <script type="application/json" id="collection-config">
+  {
+    "type": "top5",
+    "title": "Top 5",
+    "sortOptions": ["date"],
+    "defaultSort": "date"
+  }
+  </script>
 </head>
 <body>
 
   <header class="site-header">
     <a href="/" class="site-title">Dumblr</a>
     <div class="header-actions">
+      <button id="random-btn" title="Random top 5">&#9862; random</button>
       <button id="theme-toggle" aria-label="Toggle theme">&#9788;</button>
     </div>
   </header>
@@ -48,7 +58,12 @@
 
   <main class="site-main">
     <h1 class="collection-heading">Top 5</h1>
-    <p class="coming-soon">coming soon</p>
+    <div class="collection-controls">
+      <span class="collection-count" id="collection-count"></span>
+      <div class="sort-controls" id="sort-controls"></div>
+    </div>
+    <div id="collection-grid" class="entry-grid"></div>
+    <p id="empty-state" class="empty-state hidden">No top 5 entries yet.</p>
   </main>
   </div><!-- /.site-layout -->
 
@@ -56,23 +71,6 @@
     <a href="/" class="footer-home-link">← all entries</a>
   </footer>
 
-  <script>
-    (function() {
-      const el = document.querySelector('.site-title');
-      if (!el) return;
-      el.innerHTML = 'D<span class="title-insert">avid\'s T</span>umblr';
-    })();
-    (function() {
-      const saved = localStorage.getItem('theme') || 'auto';
-      document.documentElement.setAttribute('data-theme', saved);
-    })();
-    document.getElementById('theme-toggle').addEventListener('click', () => {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const next = current === 'auto' ? 'dark' : current === 'dark' ? 'light' : 'auto';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-    });
-  </script>
+  <script src="assets/js/collection.js"></script>
 </body>
 </html>

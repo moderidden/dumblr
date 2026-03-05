@@ -24,7 +24,7 @@ Personal creative journal/logbook. Static site hosted on Netlify. No framework, 
   - movie → `/movies.html`, book → `/books.html`, theater → `/theater.html`
   - meal → `/meals.html`, outfit → `/outfits.html`, memory → `/memories.html`
   - travel → `/travel.html`, shelf → `/shelf.html`, interactive → `/interactive.html`
-  - quote → `/quotes.html`, note → `/notes.html`
+  - quote → `/quotes.html`, note → `/notes.html`, top5 → `/top5.html`
 
 ---
 
@@ -210,6 +210,27 @@ Personal creative journal/logbook. Static site hosted on Netlify. No framework, 
 }
 ```
 
+### top5
+```json
+{
+  "title": "",
+  "date": "YYYY-MM-DD",
+  "type": "top5",
+  "description": "",
+  "tags": [],
+  "pinned": false
+}
+```
+- Entry page uses a **notebook paper design** — white card with drop shadow, Caveat handwriting font
+- Load `family=Caveat:wght@400;600;700` alongside Inter in the `<link>` tag
+- Structure: `.notebook-paper` > `.notebook-head` (title + pink rule) + `.notebook-body` (ruled lines + list)
+- Pink rule: `border-bottom: 2.5px solid #e87878` on `.notebook-head`
+- Ruled lines: `border-bottom: 1px solid #8cbde8` on each `li` and `.notebook-rule`; use `margin: 0 -2rem; padding: 0 2rem` to extend lines full width
+- One `.notebook-rule` blank line before the list (`height: 0.7rem`); small `padding-bottom` after the last item (no trailing rules)
+- List items: `color: #1a1a5e` (dark navy), numbers via `::before` counter in `color: #bbb`
+- `top5.html` loads Caveat font and uses `collection.js` with `"type": "top5"`
+- Collection card renders a CSS mini-notebook preview (`.top5-nb-preview`) — no poster image needed
+
 ---
 
 ## File Naming
@@ -255,8 +276,8 @@ Target sizes after compression:
 
 ## Sidebar Nav Structure
 
-All 12 pages share the same sidebar. When adding a new collection, update **all** of these files:
-`index.html`, `movies.html`, `books.html`, `theater.html`, `meals.html`, `travel.html`, `shelf.html`, `interactive.html`, `outfits.html`, `quotes.html`, `notes.html`, `memories.html`
+All 14 pages share the same sidebar. When adding a new collection, update **all** of these files:
+`index.html`, `movies.html`, `books.html`, `theater.html`, `meals.html`, `travel.html`, `shelf.html`, `interactive.html`, `outfits.html`, `quotes.html`, `notes.html`, `memories.html`, `top5.html`, `press-passes.html`
 
 Sidebar layout — three sections (section labels are not links):
 ```
@@ -276,6 +297,8 @@ life
 for fun
   quotes       → quotes.html
   apps         → interactive.html  (display name "apps", file is interactive.html)
+  top 5        → top5.html
+  press passes → press-passes.html
 ```
 
 Each collection page sets `class="sidebar-link active"` on its own link.
@@ -306,8 +329,8 @@ npm run build        # regenerates manifest.json from all entries
 
 ## Design Tokens (site.css)
 
-- Font: Inter (Google Fonts, weights 400/500/600/700)
-- Background: `#f9f7f4` (light) / `#141414` (dark)
+- Font: Inter (Google Fonts, weights 400/500/600/700); Caveat (weights 400/600/700) used for top5 entries
+- Background: `#f0ebe2` (light, warm pale beige) / `#141414` (dark)
 - Accent: `#3a5ccc` (light) / `#7fa8ff` (dark)
 - Theme: `data-theme="auto|light|dark"` on `<html>`, persisted in localStorage
 - Border radius: `--radius: 10px`

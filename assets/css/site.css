@@ -262,8 +262,23 @@ button:hover {
 /* ── Entry grid ── */
 .entry-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 1rem;
+}
+
+.month-group {
+  margin-bottom: 1.75rem;
+}
+
+.month-group-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  opacity: 0.6;
 }
 
 /* ── Entry card ── */
@@ -598,13 +613,54 @@ button:hover {
   color: var(--text);
 }
 
+/* ── Top 5 card notebook preview ── */
+.top5-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.top5-nb-preview {
+  background: white;
+  overflow: hidden;
+}
+
+.top5-nb-head {
+  padding: 0.55rem 0.85rem 0.4rem;
+  border-bottom: 2px solid #e87878;
+  font-family: 'Caveat', cursive;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.top5-nb-lines {
+  background: white;
+  background-image: repeating-linear-gradient(
+    transparent 0,
+    transparent calc(1.5rem - 1px),
+    #aacfee 1.5rem
+  );
+  background-size: 100% 1.5rem;
+  height: 4.5rem;
+}
+
+.top5-card-date {
+  padding: 0.5rem 0.85rem 0.65rem;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
 /* ── Footer ── */
 .site-footer {
   padding: 1.5rem;
   text-align: center;
 }
 
-/* Month nav (index page) */
+/* Year nav (index page footer) */
 .month-nav {
   display: flex;
   flex-wrap: wrap;
@@ -612,24 +668,9 @@ button:hover {
   justify-content: center;
 }
 
-.month-nav-group {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.4rem;
-}
-
-.month-nav-year {
-  font-size: 0.52rem;
-  font-weight: 700;
-  font-family: var(--font-mono);
-  color: var(--text);
-  line-height: 1;
-  vertical-align: baseline;
-}
-
 .month-nav a {
   font-size: 0.78rem;
-  font-weight: 500;
+  font-weight: 600;
   font-family: var(--font-mono);
   color: var(--text-muted);
   transition: color var(--transition);
