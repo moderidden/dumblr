@@ -1,22 +1,24 @@
 {
-  "generated": "2026-03-11T02:42:55.384Z",
+  "generated": "2026-03-11T02:50:59.602Z",
   "entries": [
     {
       "path": "entries/2026-03/0308-sirat",
       "title": "Sirat",
       "date": "2026-03-08",
-      "type": "theater",
+      "type": "movie",
       "description": "",
       "tags": [],
       "pinned": false,
       "rating": 2.5,
-      "playwright": "",
-      "venue": "Music Box",
+      "director": "Óliver Laxe",
+      "year": 2025,
+      "where": "Music Box",
       "with": [
         "Clay",
         "Amanda",
         "Dane"
-      ]
+      ],
+      "poster": "https://image.tmdb.org/t/p/w300/bzBtsLi17rK4G6kDvOXfUZfAhca.jpg"
     },
     {
       "path": "entries/2026-03/0306-dance-of-death",
