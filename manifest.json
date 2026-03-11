@@ -1,6 +1,40 @@
 {
-  "generated": "2026-03-05T03:37:15.659Z",
+  "generated": "2026-03-11T02:42:55.384Z",
   "entries": [
+    {
+      "path": "entries/2026-03/0308-sirat",
+      "title": "Sirat",
+      "date": "2026-03-08",
+      "type": "theater",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "rating": 2.5,
+      "playwright": "",
+      "venue": "Music Box",
+      "with": [
+        "Clay",
+        "Amanda",
+        "Dane"
+      ]
+    },
+    {
+      "path": "entries/2026-03/0306-dance-of-death",
+      "title": "The Dance of Death",
+      "date": "2026-03-06",
+      "type": "theater",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "rating": 3.5,
+      "playwright": "",
+      "venue": "Steppenwolf",
+      "with": [
+        "Breanna",
+        "Clay",
+        "Amanda"
+      ]
+    },
     {
       "path": "entries/2026-02/0228-apres-ski",
       "title": "Après Ski Party",
