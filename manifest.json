@@ -1,6 +1,37 @@
 {
-  "generated": "2026-03-11T02:50:59.602Z",
+  "generated": "2026-03-14T15:37:14.547Z",
   "entries": [
+    {
+      "path": "entries/2026-03/0313-overly-emotional",
+      "title": "Overly Emotional",
+      "date": "2026-03-13",
+      "type": "theater",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "playwright": "",
+      "venue": "Bughouse Theatre",
+      "with": [
+        "Breanna"
+      ]
+    },
+    {
+      "path": "entries/2026-03/0312-sentimental-value",
+      "title": "Sentimental Value",
+      "date": "2026-03-12",
+      "type": "movie",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "rating": 4,
+      "director": "Joachim Trier",
+      "year": 2025,
+      "where": "Home",
+      "with": [
+        "Breanna"
+      ],
+      "poster": "https://image.tmdb.org/t/p/w300/24JALfUQsIgfNqMD7vTbqEVfsqf.jpg"
+    },
     {
       "path": "entries/2026-03/0308-sirat",
       "title": "Sirat",
