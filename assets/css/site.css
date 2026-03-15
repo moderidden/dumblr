@@ -3,6 +3,36 @@
    Individual entries can have their own styles and override anything.
    ============================================================ */
 
+/* ── iA Writer Quattro (self-hosted via jsDelivr / Fontsource) ── */
+@font-face {
+  font-family: 'iA Writer Quattro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/ia-writer-quattro@latest/latin-400-normal.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'iA Writer Quattro';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/ia-writer-quattro@latest/latin-400-italic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'iA Writer Quattro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/ia-writer-quattro@latest/latin-700-normal.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'iA Writer Quattro';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 700;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/ia-writer-quattro@latest/latin-700-italic.woff2) format('woff2');
+}
+
 /* ── Color tokens (light mode defaults) ── */
 :root {
   --bg:          #f0ebe2;
@@ -19,8 +49,8 @@
   --card-hover:  0 4px 16px rgba(0,0,0,0.10);
   --transition:  0.2s ease;
 
-  /* Font stack — Inter for everything, with system fallbacks */
-  --font:        'Inter', system-ui, -apple-system, sans-serif;
+  /* Font stack */
+  --font:        'iA Writer Quattro', system-ui, -apple-system, sans-serif;
   --font-mono:   ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace;
 
   /*
