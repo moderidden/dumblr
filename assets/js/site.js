@@ -142,7 +142,8 @@ fetch('manifest.json')
     return res.json();
   })
   .then(manifest => {
-    const entries = manifest.entries || [];
+    const FOR_FUN_TYPES = new Set(['quote', 'interactive', 'top5', 'press-pass']);
+    const entries = (manifest.entries || []).filter(e => !FOR_FUN_TYPES.has(e.type));
 
     if (entries.length === 0) {
       document.getElementById('empty-state').classList.remove('hidden');

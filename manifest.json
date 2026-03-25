@@ -1,6 +1,69 @@
 {
-  "generated": "2026-03-15T04:45:48.757Z",
+  "generated": "2026-03-25T01:18:03.540Z",
   "entries": [
+    {
+      "path": "entries/2026-03/0322-project-hail-mary",
+      "title": "Project Hail Mary",
+      "date": "2026-03-22",
+      "type": "movie",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "rating": 4,
+      "director": "",
+      "year": 0,
+      "where": "Indianapolis IMAX",
+      "with": [
+        "Breanna"
+      ],
+      "poster": "https://image.tmdb.org/t/p/w300/yihdXomYb5kTeSivtFndMy5iDmf.jpg"
+    },
+    {
+      "path": "entries/2026-03/0320-mae-martin-the-possum",
+      "title": "Mae Martin: The Possum",
+      "date": "2026-03-20",
+      "type": "theater",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "playwright": "",
+      "venue": "Riviera Theater",
+      "with": [
+        "Breanna"
+      ],
+      "rating": 4
+    },
+    {
+      "path": "entries/2026-03/0319-ezra-klein",
+      "title": "Twitter makes me hate people I agree with, and podcasts make me like people I disagree with.",
+      "date": "2026-03-19",
+      "type": "quote",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "attribution": "Ezra Klein",
+      "source": ""
+    },
+    {
+      "path": "entries/2026-03/0317-just-my-luck",
+      "title": "Just My Luck",
+      "date": "2026-03-17",
+      "type": "movie",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "rating": 2.5,
+      "director": "Donald Petrie",
+      "year": 2006,
+      "where": "",
+      "with": [
+        "Breanna",
+        "Megan",
+        "Sara",
+        "Zach"
+      ],
+      "poster": "https://image.tmdb.org/t/p/w300/A3Axi7gWVdkD1i7ScqMCN1fhyGc.jpg"
+    },
     {
       "path": "entries/2026-03/0314-beauty-and-the-beast-jr",
       "title": "Beauty and the Beast Jr.",
