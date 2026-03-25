@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <title>Just My Luck — Dumblr</title>
+
+  <script type="application/json" id="entry-meta">
+  {
+    "title": "Just My Luck",
+    "date": "2026-03-17",
+    "type": "movie",
+    "description": "",
+    "tags": [],
+    "pinned": false,
+    "rating": 2.5,
+    "director": "Donald Petrie",
+    "year": 2006,
+    "where": "",
+    "with": ["Breanna", "Megan", "Sara", "Zach"],
+    "poster": "https://image.tmdb.org/t/p/w300/A3Axi7gWVdkD1i7ScqMCN1fhyGc.jpg"
+  }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #f9f7f4;
+      color: #1a1a1a;
+      padding: 3rem 1.5rem;
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { background: #141414; color: #e8e6e2; }
+      a { color: #7fa8ff; }
+      .meta { color: #666; }
+    }
+    .back-link { font-size: 0.78rem; font-family: monospace; color: #888; text-decoration: none; display: inline-block; margin-bottom: 2.5rem; }
+    .back-link:hover { color: #555; }
+    h1 { font-size: 1.65rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 0.35rem; }
+    .rating { display: inline-flex; align-items: center; gap: 1px; font-size: 1.1rem; margin-bottom: 0.4rem; line-height: 1; }
+    .star { display: inline-block; color: #e8a020; }
+    .star-empty { color: #d0ccc6; }
+    .star-half { position: relative; color: #d0ccc6; }
+    .star-half::before { content: '★'; position: absolute; left: 0; top: 0; color: #e8a020; width: 50%; overflow: hidden; display: block; white-space: nowrap; }
+    .meta { font-size: 0.78rem; font-family: monospace; color: #888; margin-bottom: 2rem; }
+    .review p { margin-bottom: 1.2rem; font-size: 1rem; }
+      /* Full site chrome overrides */
+    body { max-width: none !important; margin: 0 !important; padding: 0 !important; background: var(--bg) !important; color: var(--text) !important; }
+    .entry-body { max-width: 640px; line-height: 1.7; }
+  </style>
+  <script>(function(){var s=localStorage.getItem('theme')||'auto';document.documentElement.setAttribute('data-theme',s);})();</script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="site-title">Dumblr</a>
+    <div class="header-actions">
+      <button id="random-btn" title="Random entry">&#9862; random</button>
+      <button id="theme-toggle" aria-label="Toggle theme">&#9788;</button>
+    </div>
+  </header>
+
+  <div class="site-layout">
+    <aside class="site-sidebar">
+      <nav>
+        <div class="nav-section">
+          <span class="sidebar-section-label">log</span>
+          <a href="/movies.html" class="sidebar-link active">movies</a>
+          <a href="/books.html" class="sidebar-link">books</a>
+          <a href="/theater.html" class="sidebar-link">shows</a>
+          <a href="/meals.html" class="sidebar-link">meals</a>
+        </div>
+        <div class="nav-section">
+          <span class="sidebar-section-label">life</span>
+          <a href="/notes.html" class="sidebar-link">notes</a>
+          <a href="/memories.html" class="sidebar-link">memories</a>
+          <a href="/travel.html" class="sidebar-link">travel</a>
+          <a href="/shelf.html" class="sidebar-link">shelf</a>
+          <a href="/outfits.html" class="sidebar-link">outfits</a>
+        </div>
+        <div class="nav-section">
+          <span class="sidebar-section-label">for fun</span>
+          <a href="/quotes.html" class="sidebar-link">quotes</a>
+          <a href="/interactive.html" class="sidebar-link">apps</a>
+          <a href="/top5.html" class="sidebar-link">top 5</a>
+          <a href="/press-passes.html" class="sidebar-link">press passes</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="site-main">
+      <article class="entry-body">
+
+  <a href="/movies.html" class="back-link">← back</a>
+
+  <div class="entry-header">
+    <img class="entry-poster" src="https://image.tmdb.org/t/p/w300/A3Axi7gWVdkD1i7ScqMCN1fhyGc.jpg" alt="Just My Luck poster" />
+    <div class="entry-header-text">
+      <h1>Just My Luck</h1>
+      <div class="rating"><span class="star">★</span><span class="star">★</span><span class="star-half">★</span><span class="star-empty">★</span><span class="star-empty">★</span></div>
+      <div class="meta">with Breanna, Megan, Sara &amp; Zach · Mar 17, 2026</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       FULL REVIEW / NOTES
+       ═══════════════════════════════════════════════ -->
+  <section class="review">
+  </section>
+
+      </article><!-- /.entry-body -->
+    </main>
+  </div><!-- /.site-layout -->
+
+  <script src="/assets/js/entry.js"></script>
+</body>
+</html>
