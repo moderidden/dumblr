@@ -1,6 +1,38 @@
 {
-  "generated": "2026-03-19T15:16:10.903Z",
+  "generated": "2026-03-25T00:52:51.312Z",
   "entries": [
+    {
+      "path": "entries/2026-03/0321-project-hail-mary",
+      "title": "Project Hail Mary",
+      "date": "2026-03-21",
+      "type": "movie",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "director": "",
+      "year": 0,
+      "where": "Indianapolis IMAX",
+      "with": [
+        "Breanna"
+      ],
+      "rating": 4,
+      "poster": ""
+    },
+    {
+      "path": "entries/2026-03/0320-mae-martin-possum",
+      "title": "Mae Martin: The Possum",
+      "date": "2026-03-20",
+      "type": "theater",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "playwright": "",
+      "venue": "Riviera Theater",
+      "with": [
+        "Breanna"
+      ],
+      "rating": 4
+    },
     {
       "path": "entries/2026-03/0319-twitter-podcasts",
       "title": "Twitter makes me hate people I agree with, and podcasts make me like people I disagree with.",
