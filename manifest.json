@@ -1,6 +1,23 @@
 {
-  "generated": "2026-03-25T01:24:08.721Z",
+  "generated": "2026-04-01T01:17:42.873Z",
   "entries": [
+    {
+      "path": "entries/2026-04/0401-bistro-campagne",
+      "title": "Bistro Campagne",
+      "date": "2026-04-01",
+      "type": "meal",
+      "description": "",
+      "tags": [],
+      "pinned": false,
+      "restaurant": "Bistro Campagne",
+      "cuisine": "French",
+      "with": [
+        "Ilyse",
+        "Steve",
+        "Breanna"
+      ],
+      "rating": null
+    },
     {
       "path": "entries/2026-03/0322-project-hail-mary",
       "title": "Project Hail Mary",
